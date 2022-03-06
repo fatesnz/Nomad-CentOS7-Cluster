@@ -2,7 +2,7 @@
 
 # Description
 
-This project spins up a nomad cluster of at least 3 nomad machines with 1x nomad
+This project spins up a nomad cluster of at least 3x nomad machines with 1x nomad
 master and 2x nomad clients.
 
 # Vagrantfile
@@ -18,6 +18,7 @@ This file describes what vagrant would create. This vagrantfile will create:
 
 To control how many machines to spin up, edit the `for loop` indices:
 
+#This spins up 3 machines number 1,2, and 3
 *(1..3)*.each do |i|
   config.vm.define "nomad-a-#{i}" do |n|
     if i == 1
@@ -30,7 +31,7 @@ To control how many machines to spin up, edit the `for loop` indices:
 
 # Ansible
 
-The nomad playbook will create the nomad cluster using the VMS and run the
+The nomad playbook will create the nomad cluster using the VMs and run the
 following roles in this order:
 
 - consul: install consul for service discovery and create matching service
