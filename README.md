@@ -19,6 +19,7 @@ This file describes what vagrant would create. This vagrantfile will create:
 To control how many machines to spin up, edit the `for loop` indices:
 
 #This spins up 3 machines number 1,2, and 3
+
 *(1..3)*.each do |i|
   config.vm.define "nomad-a-#{i}" do |n|
     if i == 1
