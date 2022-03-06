@@ -1,0 +1,16 @@
+---
+
+- name:    restart iptables
+  listen:  iptables-restart
+  action: >
+    {{ ansible_service_mgr }} name=iptables state=restarted enabled=yes
+
+- name:    restore iptables
+  command: 'iptables-restore {{ iptables_file_path }}'
+  listen:  iptables-restore
+  notify:  sync_fw
+
+- name:    run firewall sync
+  command: '/usr/local/bin/fwsync'
+  listen:  sync_fw
+  when:    iptables_fwsync_enabled | default('false') | bool

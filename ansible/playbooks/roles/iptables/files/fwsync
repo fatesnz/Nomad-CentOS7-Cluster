@@ -1,0 +1,7 @@
+#!/bin/sh
+source /etc/rc.d/init.d/functions
+
+IPTCONFIG="/etc/sysconfig/iptables"
+
+scp $IPTCONFIG peer:/$IPTCONFIG
+ssh peer "/sbin/iptables-restore --test $IPTCONFIG && /sbin/iptables-restore $IPTCONFIG"

@@ -1,0 +1,25 @@
+---
+
+- name: Creates directory
+  file:
+    path: /etc/nomad/
+    state: directory
+
+- name: template nomad jobs
+  template:
+    src: templates/{{ item }}.j2
+    dest: /etc/nomad/{{ item }}
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - demo-webapp.nomad
+    - traefik.nomad
+  when: inventory_hostname in groups['server']
+
+- name: Run nomad jobs
+  shell: "nomad job run -detach /etc/nomad/{{ item }}"
+  when: inventory_hostname in groups['server']
+  with_items:
+    - demo-webapp.nomad
+    - traefik.nomad

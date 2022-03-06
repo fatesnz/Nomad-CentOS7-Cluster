@@ -1,0 +1,13 @@
+---
+
+- name: stop/disable firewalld
+  action: >
+    {{ ansible_service_mgr }} name=firewalld state=stopped enabled=no
+  ignore_errors: true
+
+- name: install iptables
+  yum:
+    name:
+      - iptables-services
+      - ipset
+    state: present  

@@ -1,0 +1,20 @@
+---
+# iptables file paths
+iptables_config_path: "/etc/sysconfig/iptables-config"
+iptables_file_path: "/etc/sysconfig/iptables"
+iptables_fwsync_path: "/usr/local/bin/fwsync"
+iptables_fwsync_enabled: false
+
+# iptables config file params
+iptables_config:
+  IPTABLES_MODULES: ""
+  IPTABLES_MODULES_UNLOAD: "yes"
+  IPTABLES_SAVE_ON_STOP: "no"
+  IPTABLES_SAVE_ON_RESTART: "no"
+  IPTABLES_SAVE_COUNTER: "no"
+  IPTABLES_STATUS_NUMERIC: "yes"
+  IPTABLES_STATUS_VERBOSE: "no"
+  IPTABLES_STATUS_LINENUMBERS: "yes"
+
+ipset_config_path: "/etc/sysconfig/ipset"
+ipset_service_dir: "/etc/systemd/system"  

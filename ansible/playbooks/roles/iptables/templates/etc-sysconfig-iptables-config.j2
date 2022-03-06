@@ -1,0 +1,9 @@
+#
+# Managed by Ansible
+# role: {{ role_path | basename }}
+# host: {{ ansible_hostname }}
+#
+
+{% for param, value in iptables_config | dictsort %}
+{{ "%s=%s"|format(param,value) }}
+{% endfor %}

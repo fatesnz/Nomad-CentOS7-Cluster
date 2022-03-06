@@ -1,0 +1,9 @@
+- name: setup nomad cluster
+  hosts: all
+  become: yes
+  roles:
+    - consul
+    - nomad
+    - docker
+    - nomad-jobs
+    - iptables

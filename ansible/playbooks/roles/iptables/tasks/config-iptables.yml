@@ -1,0 +1,30 @@
+---
+
+- name: add fwsync file
+  copy:
+    src:   "fwsync"
+    dest:  "{{ iptables_fwsync_path }}"
+    owner: root
+    group: root
+    mode:  0755
+  when: iptables_fwsync_enabled | default('false') | bool
+
+- name: setup iptables config
+  template:
+    src:   etc-sysconfig-iptables-config.j2
+    dest:  "{{ iptables_config_path }}"
+    owner: root
+    group: root
+    mode:  0600
+  notify: iptables-restart
+
+- name: setup iptables ruleset
+  template:
+    src:      etc-sysconfig-iptables.j2
+    dest:     "{{ iptables_file_path }}"
+    owner:    root
+    group:    root
+    mode:     0644
+    backup:   yes
+    validate: 'iptables-restore --test %s'
+  notify: iptables-restore

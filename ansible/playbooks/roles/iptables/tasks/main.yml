@@ -1,0 +1,20 @@
+---
+
+- name: setup iptables if CentOS7
+  include_tasks:
+    file: setup-iptables.yml
+    apply:
+      tags:
+        - "setup_iptables"
+  tags:
+    - "setup_iptables"
+  when: "ansible_distribution_major_version|int > 6"
+
+- name: iptables configuration
+  include_tasks:
+    file: config-iptables.yml
+    apply:
+      tags:
+        - "config_iptables"
+  tags:
+    - "config_iptables"

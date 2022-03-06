@@ -1,0 +1,17 @@
+[server]
+nomad-a-1 ansible_host=172.16.1.101 ansible_ssh_host=172.16.1.101  consul_bootstrap=true
+
+[client]
+nomad-a-2 ansible_host=172.16.1.102 ansible_ssh_host=172.16.1.102
+nomad-a-3 ansible_host=172.16.1.103 ansible_ssh_host=172.16.1.103
+
+[nomad:children]
+server
+client
+
+[all:vars]
+ansible_user="vagrant"
+
+[client:vars]
+nomad_client=true
+nomad_server=false

@@ -1,0 +1,11 @@
+#
+# NAT TABLE
+#
+*nat
+:PREROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
+-A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
+-A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
+-A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
+COMMIT
