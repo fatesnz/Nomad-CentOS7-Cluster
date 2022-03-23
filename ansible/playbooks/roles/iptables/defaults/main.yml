@@ -15,6 +15,3 @@ iptables_config:
   IPTABLES_STATUS_NUMERIC: "yes"
   IPTABLES_STATUS_VERBOSE: "no"
   IPTABLES_STATUS_LINENUMBERS: "yes"
-
-ipset_config_path: "/etc/sysconfig/ipset"
-ipset_service_dir: "/etc/systemd/system"  

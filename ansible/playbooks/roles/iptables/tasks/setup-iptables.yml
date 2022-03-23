@@ -9,5 +9,4 @@
   yum:
     name:
       - iptables-services
-      - ipset
     state: present  

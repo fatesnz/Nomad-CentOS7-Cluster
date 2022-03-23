@@ -5,5 +5,5 @@
     - consul
     - nomad
     - docker
-    - nomad-jobs
     - iptables
+    - nomad-jobs
