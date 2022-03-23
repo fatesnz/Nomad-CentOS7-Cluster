@@ -38,10 +38,10 @@ following roles in this order:
 - consul: install consul for service discovery and create matching service
 - nomad: install nomad and create matching service
 - docker: install docker for nomad jobs that uses docker providers
-- nomad-jobs: runs a set of nomad jobs. nomad jobs are templated using jinja.
 - iptables: this is a customized iptables role that creates dns port forwarding.
   This allows requests to consul dns to hit port 53 on the machines and forward
   to port 8600 where the consul dns interface listens on.
+- nomad-jobs: runs a set of nomad jobs. nomad jobs are templated using jinja.
 
 Use the ansible inventory to control which VM to belong to which nomad role (server
 or client).
