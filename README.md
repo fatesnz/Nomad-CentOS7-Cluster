@@ -5,6 +5,13 @@
 This project spins up a nomad cluster of at least 3x nomad machines with 1x nomad
 master and 2x nomad clients.
 
+# Prerequisites
+
+These software packages need to be installed:
+- vagrant
+- some form of hypervisor tool to use with vagrant: virtualbox, kvm, etc.
+- ansible
+
 # Vagrantfile
 
 This file describes what vagrant would create. This vagrantfile will create:
