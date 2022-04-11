@@ -53,3 +53,14 @@ with modifications to support newer nomad and consul versions and to use differe
 machine setup.
 
 FW iptables role is based off of Abhishek's fw-iptables role.
+
+# Usage
+
+Vagrant:
+- Run `vagrant up` to create the VM instances
+- Include your public ssh key as part of the authorized key list so you can ssh
+  easily into the machines
+
+Ansible:
+- You should be able to run the playbook easily once your ssh keys are in the
+  VMs.
